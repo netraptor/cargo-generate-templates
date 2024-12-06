@@ -42,7 +42,7 @@ fn crate_type() {
         bin: || file::delete("src/lib.rs"),
         lib: || file::delete("src/bin.rs"),
         bin_with_lib: || {},
-    }
+    };
 
     while !(crate_type_map.contains(crate_type)) {
         crate_type = variable::prompt("What type of crate is this?", "bin", crate_type_map.keys());
