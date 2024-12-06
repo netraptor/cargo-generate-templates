@@ -1,0 +1,5 @@
+[template]
+sub_templates = [
+    "basic-rust-app",
+    "rust-workspace",
+]

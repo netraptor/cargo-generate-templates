@@ -1,0 +1,8 @@
+[template]
+cargo_generate_version = ">=0.22.0"
+
+[hooks]
+pre = ["prehook_script.rhai"]
+
+[placeholders]
+project-pretty-name = { prompt = "Enter a user-facing name for the project", type = "string" }
