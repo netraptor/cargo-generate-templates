@@ -40,7 +40,7 @@ fn crate_type() {
 
     let crate_type_map = #{
         bin: || file::delete("src/lib.rs"),
-        lib: || file::delete("src/bin.rs"),
+        lib: || file::delete("src/main.rs"),
         bin_with_lib: || {},
     };
 
