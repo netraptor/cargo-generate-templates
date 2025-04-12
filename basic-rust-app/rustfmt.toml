@@ -1,4 +1,0 @@
-blank_lines_upper_bound = 3
-imports_granularity = "Module"
-group_imports = "StdExternalCrate"
-match_block_trailing_comma = true
