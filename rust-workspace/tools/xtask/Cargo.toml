@@ -12,7 +12,4 @@ description = "Task runner for {{project-name}}"
 [lints]
 workspace = true
 
-[features]
-backtrace = ["error-stack/backtrace"]
-
 [dependencies]
