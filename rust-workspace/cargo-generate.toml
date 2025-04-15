@@ -32,3 +32,6 @@ default = "bin-and-lib"
 prompt = "Setup cargo xtask?"
 type = "bool"
 default = false
+
+[conditional.'include-xtask == false']
+ignore = ["tools/xtask", ".cargo/config.toml"]
