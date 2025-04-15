@@ -17,7 +17,7 @@ prompt = "What is the minimum rust version for the project?"
 type = "string"
 default = "1.86.0"
 
-[placeholders.toplevel-crate]
+[placeholders.toplevel_crate]
 prompt = "Please select the crate type of the top-level crate"
 type = "string"
 choices = [
@@ -35,3 +35,12 @@ default = false
 
 [conditional.'include_xtask == false']
 ignore = ["tools", ".cargo"]
+
+[conditional.'toplevel_crate == "none"']
+ignore = ["src"]
+
+[conditional.'toplevel_crate == "bin"']
+ignore = ["src/lib.rs"]
+
+[conditional.'toplevel_crate == "lib"']
+ignore = ["src/main.rs"]

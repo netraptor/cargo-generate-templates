@@ -1,17 +1,3 @@
-let toplevel = variable::get("toplevel-crate").to_lower();
-let include_toplevel = true;
-switch toplevel {
-    "none" => {
-        file::delete("src/lib.rs");
-        file::delete("src/main.rs");
-        file::delete("src");
-        include_toplevel = false;
-    }
-    "bin" => file::delete("src/lib.rs"),
-    "lib" => file::delete("src/main.rs"),
-    _ => {}
-}
-
 let ws_top = if variable::get("include_xtask") {
     `
 [workspace]
@@ -58,7 +44,7 @@ unimplemented = { level = "warn", priority = 1 }
 [workspace.dependencies]
 "##;
 
-let manifest = if include_toplevel {
+let manifest = if variable::get("toplevel_crate").to_lower() != "none" {
     let toplevel_details = ##"[package]
 name = "{{project-name}}"
 version.workspace = true
