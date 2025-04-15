@@ -22,8 +22,6 @@ members = [
 ]
 `
 } else {
-    // file::delete(".cargo/config.toml");
-    // file::delete(".cargo");
     `
 [workspace]
 resolver = "3"
