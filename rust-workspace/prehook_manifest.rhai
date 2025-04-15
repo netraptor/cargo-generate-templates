@@ -12,7 +12,7 @@ switch toplevel {
     _ => {}
 }
 
-let ws_top = if variable::get("include-xtask") {
+let ws_top = if variable::get("include_xtask") {
     `
 [workspace]
 resolver = "3"

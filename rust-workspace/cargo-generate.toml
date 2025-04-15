@@ -28,10 +28,10 @@ choices = [
 ]
 default = "bin-and-lib"
 
-[placeholders.include-xtask]
+[placeholders.include_xtask]
 prompt = "Setup cargo xtask?"
 type = "bool"
 default = false
 
-[conditional.'include-xtask == false']
-ignore = ["tools/xtask", ".cargo/config.toml"]
+[conditional.'include_xtask == false']
+ignore = ["tools", ".cargo"]

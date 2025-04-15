@@ -24,7 +24,7 @@ fn add_dep(crate, features) {
     }
 }
 
-if variable::get("include-xtask") {
+if variable::get("include_xtask") {
     add_dep("error-stack", []);
     add_dep("bpaf", ["dull-color"]);
     add_dep("duct", []);
