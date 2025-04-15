@@ -8,10 +8,6 @@ pre = [
 ]
 post = ["posthook_xtask.rhai"]
 
-[placeholders.project-pretty-name]
-prompt = "Enter a user-facing name for the project"
-type = "string"
-
 [placeholders.rust-version]
 prompt = "What is the minimum rust version for the project?"
 type = "string"
