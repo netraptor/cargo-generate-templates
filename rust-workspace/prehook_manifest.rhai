@@ -25,21 +25,19 @@ edition = "2024"
 rust-version = "{{rust-version}}"
 repository = ""
 
-[workspace.lints.rust]
-unsafe_code = "forbid"
-missing_debug_implementations = "warn"
-# missing_docs = "warn"
-# unused_crate_dependencies = "warn"
-unused_macro_rules = "warn"
-unused_qualifications = "warn"
-
-[workspace.lints.clippy]
-pedantic = { level = "warn", priority = 0 }
-unwrap_used = { level = "deny", priority = 1 }
-verbose_file_reads = { level = "warn", priority = 1 }
-clone_on_ref_ptr = { level = "deny", priority = 1 }
-todo = { level = "warn", priority = 1 }
-unimplemented = { level = "warn", priority = 1 }
+[workspace.lints]
+rust.unsafe_code = "forbid"
+rust.missing_debug_implementations = "warn"
+rust.missing_docs = "warn"
+rust.unused_crate_dependencies = "warn"
+rust.unused_macro_rules = "warn"
+rust.unused_qualifications = "warn"
+clippy.pedantic = "warn"
+clippy.unwrap_used = "deny"
+clippy.verbose_file_reads = "warn"
+clippy.clone_on_ref_ptr = "deny"
+clippy.todo = "warn"
+clippy.unimplemented = "warn"
 
 [workspace.dependencies]
 "##;
