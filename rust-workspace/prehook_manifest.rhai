@@ -33,11 +33,11 @@ rust.unused_crate_dependencies = "warn"
 rust.unused_macro_rules = "warn"
 rust.unused_qualifications = "warn"
 clippy.pedantic = "warn"
-clippy.unwrap_used = "deny"
-clippy.verbose_file_reads = "warn"
-clippy.clone_on_ref_ptr = "deny"
-clippy.todo = "warn"
-clippy.unimplemented = "warn"
+clippy.unwrap_used = { level = "deny", priority = 1 }
+clippy.verbose_file_reads = { level = "warn", priority = 1 }
+clippy.clone_on_ref_ptr = { level = "deny", priority = 1 }
+clippy.todo = { level = "warn", priority = 1 }
+clippy.unimplemented = { level = "warn", priority = 1 }
 
 [workspace.dependencies]
 "##;
