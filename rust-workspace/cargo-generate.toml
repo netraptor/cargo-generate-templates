@@ -6,12 +6,11 @@ pre = [
     "prehook_license.rhai",
     "prehook_manifest.rhai",
 ]
-post = ["posthook_xtask.rhai"]
 
 [placeholders.rust-version]
 prompt = "What is the minimum rust version for the project?"
 type = "string"
-default = "1.87.0"
+default = "1.90.0"
 
 [placeholders.toplevel_crate]
 prompt = "Please select the crate type of the top-level crate"
@@ -24,13 +23,13 @@ choices = [
 ]
 default = "bin-and-lib"
 
-[placeholders.include_xtask]
-prompt = "Setup cargo xtask?"
+[placeholders.xtask]
+prompt = "Include example xtask cargo script (requires nightly toolchain)?"
 type = "bool"
 default = false
 
-[conditional.'include_xtask == false']
-ignore = ["tools", ".cargo"]
+[conditional.'xtask == false']
+ignore = ["xtask.rs"]
 
 [conditional.'toplevel_crate == "none"']
 ignore = ["src"]

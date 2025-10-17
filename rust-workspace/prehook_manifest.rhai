@@ -1,21 +1,8 @@
-let ws_top = if variable::get("include_xtask") {
-    `
+let ws_top = `
 [workspace]
 resolver = "3"
-members = [
-    # "crates/*",
-    "tools/xtask",
-]
-`
-} else {
-    `
-[workspace]
-resolver = "3"
-members = [
-    # "crates/*",
-]
-`
-};
+members = []
+`;
 
 let ws_details = ##"[workspace.package]
 version = "0.1.0-dev"
@@ -28,8 +15,8 @@ repository = ""
 [workspace.lints]
 rust.unsafe_code = "forbid"
 rust.missing_debug_implementations = "warn"
-rust.missing_docs = "warn"
-rust.unused_crate_dependencies = "warn"
+# rust.missing_docs = "warn"
+# rust.unused_crate_dependencies = "warn"
 rust.unused_macro_rules = "warn"
 rust.unused_qualifications = "warn"
 clippy.pedantic = "warn"
