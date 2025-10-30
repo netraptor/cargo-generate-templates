@@ -83,12 +83,10 @@ fn get_cargo_metadata() -> color_eyre::Result<cargo_metadata::Metadata> {
 fn get_binary_name(metadata: &cargo_metadata::Metadata) -> Option<String> {
     metadata.root_package()?.targets.iter().find_map(|target| {
         if target.is_bin() {
-            let tname = target.name.to_owned();
-
             if cfg!(windows) {
-                Some(format!("{tname}.exe"))
+                Some(format!("{tname}.exe", tname = target.name))
             } else {
-                Some(tname)
+                Some(target.name.to_owned())
             }
         } else {
             None
