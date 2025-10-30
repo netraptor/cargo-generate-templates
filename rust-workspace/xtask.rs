@@ -5,16 +5,16 @@ edition = "2024"
 
 [dependencies]
 cargo_metadata = "0.22.0"
-cfg-if = "1"
 clap = { version = "4.5", features = ["derive"] }
 color-eyre = "0.6.5"
 duct = "1.1.0"
 ---
 
+use std::path::PathBuf;
+
 use clap::{Parser, Subcommand};
 use color_eyre::eyre::{self, OptionExt};
 use duct::cmd;
-use std::path::PathBuf;
 
 #[derive(Debug, Parser)]
 struct CliArgs {
@@ -37,7 +37,7 @@ fn main() -> color_eyre::Result<()> {
             let _ = cmd!("cargo", "build").run()?;
 
             task_step("Build complete");
-        }
+        },
         Task::Install { install_dir } => {
             task_step("Getting workspace metadata");
             let metadata = get_cargo_metadata()?;
@@ -55,12 +55,11 @@ fn main() -> color_eyre::Result<()> {
                 .join("target")
                 .join("release")
                 .join(&binary_name);
-            let dst_path = install_dir.join(&binary_name);
+            let canon_install_path = install_dir.canonicalize()?;
+            let dst_path = canon_install_path.join(&binary_name);
             std::fs::copy(src_path, &dst_path)?;
-
-            let full_dst_path = dst_path.canonicalize()?;
-            task_step(format!("Installed to `{}`", full_dst_path.display()));
-        }
+            task_step(format!("Installed to `{}`", dst_path.display()));
+        },
     }
 
     Ok(())
@@ -86,12 +85,10 @@ fn get_binary_name(metadata: &cargo_metadata::Metadata) -> Option<String> {
         if target.is_bin() {
             let tname = target.name.to_owned();
 
-            cfg_if::cfg_if! {
-                if #[cfg(windows)] {
-                    Some(format!("{tname}.exe"))
-                } else {
-                    Some(tname)
-                }
+            if cfg!(windows) {
+                Some(format!("{tname}.exe"))
+            } else {
+                Some(tname)
             }
         } else {
             None
