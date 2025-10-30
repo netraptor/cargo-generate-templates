@@ -55,8 +55,7 @@ fn main() -> color_eyre::Result<()> {
                 .join("target")
                 .join("release")
                 .join(&binary_name);
-            let canon_install_path = install_dir.canonicalize()?;
-            let dst_path = canon_install_path.join(&binary_name);
+            let dst_path = install_dir.canonicalize()?.join(&binary_name);
             std::fs::copy(src_path, &dst_path)?;
             task_step(format!("Installed to `{}`", dst_path.display()));
         },
