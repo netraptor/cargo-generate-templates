@@ -11,7 +11,7 @@ prompt = "What is the minimum rust version for the project?"
 type = "string"
 default = "1.90.0"
 
-[placeholders.crate_type]
+[placeholders.toplevel_crate]
 prompt = "Please select the crate type"
 type = "string"
 choices = [
@@ -21,8 +21,8 @@ choices = [
 ]
 default = "bin-and-lib"
 
-[conditional.'crate_type == "bin"']
+[conditional.'toplevel_crate == "bin"']
 ignore = ["src/lib.rs"]
 
-[conditional.'crate_type == "lib"']
+[conditional.'toplevel_crate == "lib"']
 ignore = ["src/main.rs"]
