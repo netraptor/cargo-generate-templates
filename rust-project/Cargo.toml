@@ -1,0 +1,24 @@
+[package]
+name = "{{project-name}}"
+version = "0.1.0-dev"
+authors = ["{{authors}}"]
+license = "{{license}}"
+edition = "2024"
+rust-version = "{{rust-version}}"
+repository = ""
+
+[lints.rust]
+unsafe_code = "forbid"
+missing_debug_implementations = "warn"
+# unused_crate_dependencies = "warn"
+unused_macro_rules = "warn"
+unused_qualifications = "warn"
+
+[lints.clippy]
+pedantic = "warn"
+unwrap_used = "deny"
+clone_on_ref_ptr = "deny"
+todo = "warn"
+unimplemented = "warn"
+
+[dependencies]

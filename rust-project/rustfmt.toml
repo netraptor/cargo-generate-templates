@@ -1,0 +1,12 @@
+# For more information, see:
+# - Github repo: https://github.com/rust-lang/rustfmt
+# - Config options: https://rust-lang.github.io/rustfmt/
+
+# Necessary for consistent formatting (see 'https://github.com/rust-lang/rustfmt#style-editions')
+style_edition = "2024"
+
+# Style rules
+blank_lines_upper_bound = 3
+imports_granularity = "Module"
+group_imports = "StdExternalCrate"
+match_block_trailing_comma = true

@@ -1,0 +1,18 @@
+# Use LF line endings by default
+* text eol=lf
+
+# Explicitly use LF line endings for the following file types
+*.toml text eol=lf
+*.md text eol=lf
+*.rs text eol=lf
+
+# Explicitly use LF line endings for the following files
+/LICENSE text eol=lf
+/Cargo.lock text eol=lf
+
+# Do not modify line endings for the following file types
+# *.png binary
+# *.svg binary
+# *.jpg binary
+# *.ico binary
+# *.ttf binary

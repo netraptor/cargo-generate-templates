@@ -1,0 +1,28 @@
+[template]
+cargo_generate_version = ">=0.23.0"
+
+[hooks]
+pre = [
+    "prehook_license.rhai",
+]
+
+[placeholders.rust-version]
+prompt = "What is the minimum rust version for the project?"
+type = "string"
+default = "1.90.0"
+
+[placeholders.crate_type]
+prompt = "Please select the crate type"
+type = "string"
+choices = [
+    "bin",
+    "lib",
+    "bin-and-lib",
+]
+default = "bin-and-lib"
+
+[conditional.'crate_type == "bin"']
+ignore = ["src/lib.rs"]
+
+[conditional.'crate_type == "lib"']
+ignore = ["src/main.rs"]
