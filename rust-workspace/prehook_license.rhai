@@ -25,8 +25,8 @@ for some_license in spdx_map.values() {
 }
 
 if license == "mit" {
-    cr_year = variable::prompt("Please provide a year for the MIT license copyright.");
-    cr_name = variable::prompt("Please provide a name for the MIT license copyright.");
+    let cr_year = variable::prompt("Please provide a year for the MIT license copyright.");
+    let cr_name = variable::prompt("Please provide a name for the MIT license copyright.");
 
     variable::set("year", cr_year);
     variable::set("copyright-name", cr_name);
